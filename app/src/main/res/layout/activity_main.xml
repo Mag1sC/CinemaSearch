@@ -67,7 +67,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/behemoth_poster_description"
                 android:scaleType="centerCrop"
-                android:src="@drawable/behemoth_poster" />
+                android:src="@drawable/poster_behemoth" />
 
             <ImageView
                 android:id="@+id/image_view_dune_poster"
@@ -76,7 +76,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/dune3_poster_description"
                 android:scaleType="centerCrop"
-                android:src="@drawable/dune3_poster" />
+                android:src="@drawable/poster_dune3" />
 
             <ImageView
                 android:id="@+id/image_view_jumanji_poster"
@@ -85,7 +85,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/jumanji_poster_description"
                 android:scaleType="centerCrop"
-                android:src="@drawable/jumanji_poster" />
+                android:src="@drawable/poster_jumanji" />
 
             <ImageView
                 android:id="@+id/image_view_river_poster"
@@ -94,7 +94,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/river_poster_description"
                 android:scaleType="centerCrop"
-                android:src="@drawable/river_poster" />
+                android:src="@drawable/poster_river" />
 
         </LinearLayout>
 
