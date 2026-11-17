@@ -2,4 +2,9 @@
 <resources>
     <string name="app_name">Cinema Search</string>
     <string name="button_placeholder">Button</string>
+
+    <string name="behemoth_poster_description">Poster for the film "Behemoth"</string>
+    <string name="dune3_poster_description">Poster for the film "Dune 3"</string>
+    <string name="jumanji_poster_description">Poster for the film "Jumanji"</string>
+    <string name="river_poster_description">Poster for the film "River"</string>
 </resources>

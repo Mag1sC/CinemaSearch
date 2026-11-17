@@ -11,7 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.08" />
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_posters_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_bottom_bar"
@@ -24,11 +31,85 @@
         android:id="@+id/top_bar"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/top_bar"
+        android:background="@color/primary"
         app:layout_constraintBottom_toTopOf="@id/guideline_top_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="24sp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/posters_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/top_bar"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintBottom_toTopOf="@id/guideline_posters_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top_bar">
+
+        <ImageView
+            android:id="@+id/image_view_behemoth_poster"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/behemoth_poster_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/behemoth_poster" />
+
+        <ImageView
+            android:id="@+id/image_view_dune_poster"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/dune3_poster_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dune3_poster" />
+
+        <ImageView
+            android:id="@+id/image_view_jumanji_poster"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/jumanji_poster_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/jumanji_poster" />
+
+        <ImageView
+            android:id="@+id/image_view_river_poster"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/river_poster_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/river_poster" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_view_poster_source"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:gravity="center"
+        android:linksClickable="true"
+        android:text="@string/info_posters_source"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_posters_bar" />
 
     <FrameLayout
         android:id="@+id/bottom_bar"
@@ -46,20 +127,21 @@
         android:layout_height="0dp"
         android:layout_marginHorizontal="32dp"
         android:layout_marginVertical="16dp"
-        android:background="@color/container_buttons"
+        android:background="@drawable/buttons_container_background"
         android:orientation="vertical"
         android:padding="4dp"
         app:layout_constraintBottom_toTopOf="@id/bottom_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="wrap"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_bar">
+        app:layout_constraintTop_toBottomOf="@id/text_view_poster_source">
 
         <Button
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_shape"
+            android:foreground="?attr/selectableItemBackground"
             android:text="@string/button_placeholder"
             app:backgroundTint="@null" />
 
@@ -69,6 +151,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:background="@drawable/button_shape"
+            android:foreground="?attr/selectableItemBackground"
             android:text="@string/button_placeholder"
             app:backgroundTint="@null" />
 
@@ -78,6 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:background="@drawable/button_shape"
+            android:foreground="?attr/selectableItemBackground"
             android:text="@string/button_placeholder"
             app:backgroundTint="@null" />
 
@@ -87,6 +171,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:background="@drawable/button_shape"
+            android:foreground="?attr/selectableItemBackground"
             android:text="@string/button_placeholder"
             app:backgroundTint="@null" />
 
@@ -96,6 +181,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:background="@drawable/button_shape"
+            android:foreground="?attr/selectableItemBackground"
             android:text="@string/button_placeholder"
             app:backgroundTint="@null" />
 
