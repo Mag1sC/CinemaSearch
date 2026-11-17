@@ -2,6 +2,7 @@ package com.kazbekov.cinemasearch
 
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -33,5 +34,18 @@ class MainActivity : AppCompatActivity() {
 
             WindowInsetsCompat.CONSUMED
         }
+
+        initMenuButtons()
+    }
+
+    private fun initMenuButtons() {
+        binding.buttonFeed.setOnClickListener { makeToast(binding.buttonFeed.text) }
+        binding.buttonMyMovies.setOnClickListener { makeToast(binding.buttonMyMovies.text) }
+        binding.buttonRecommendations.setOnClickListener { makeToast(binding.buttonRecommendations.text) }
+        binding.buttonSettings.setOnClickListener { makeToast(binding.buttonSettings.text) }
+    }
+
+    private fun makeToast(message: CharSequence) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
