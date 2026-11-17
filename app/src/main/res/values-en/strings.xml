@@ -7,7 +7,7 @@
     <string name="dune3_poster_description">Poster for the film "Dune 3"</string>
     <string name="jumanji_poster_description">Poster for the film "Jumanji"</string>
     <string name="river_poster_description">Poster for the film "River"</string>
-    <string name="info_posters_source">The posters are taken from the resource</string>
+    <string name="info_posters_source">The posters are taken from the resource https://www.movieposters.com/</string>
     <string name="button_feed">Feed</string>
     <string name="button_my_movies">My movies</string>
     <string name="button_recommendations">Recommendations</string>
