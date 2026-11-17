@@ -151,6 +151,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:text="@string/button_feed"
+            android:textSize="16sp"
             app:backgroundTint="@null" />
 
         <Button
@@ -160,6 +161,7 @@
             android:layout_marginTop="2dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:text="@string/button_my_movies"
+            android:textSize="16sp"
             app:backgroundTint="@null" />
 
         <Button
@@ -169,6 +171,7 @@
             android:layout_marginTop="2dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:text="@string/button_recommendations"
+            android:textSize="16sp"
             app:backgroundTint="@null" />
 
         <Button
@@ -178,6 +181,7 @@
             android:layout_marginTop="2dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:text="@string/button_settings"
+            android:textSize="16sp"
             app:backgroundTint="@null" />
 
     </LinearLayout>
