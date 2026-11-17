@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Cinema Search</string>
+
+    <string name="button_placeholder">Кнопка</string>
 </resources>
