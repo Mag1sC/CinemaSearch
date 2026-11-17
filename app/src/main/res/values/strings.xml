@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Cinema Search</string>
+
+    <string name="button_placeholder">Кнопка</string>
+
+    <string name="behemoth_poster_description">Постер фильма "Бегемот"</string>
+    <string name="dune3_poster_description">Постер фильма "Дюна 3"</string>
+    <string name="jumanji_poster_description">Постер фильма "Джуманджи"</string>
+    <string name="river_poster_description">Постер фильма "Река"</string>
+
+    <string name="info_posters_source">Постеры взяты с ресурса https://www.movieposters.com/</string>
+
+    <string name="button_feed">Лента</string>
+    <string name="button_my_movies">Мои фильмы</string>
+    <string name="button_recommendations">Рекомендации</string>
+    <string name="button_settings">Настройки</string>
 </resources>

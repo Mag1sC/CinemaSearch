@@ -1,6 +1,9 @@
 package com.kazbekov.cinemasearch
 
+import android.graphics.Color
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,9 +14,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        // Пока приложение не имеет найстроки темы, для светлой и темной устанавливается один и тот же цвет
+        val systemBarStyle = SystemBarStyle.dark(Color.TRANSPARENT)
+        enableEdgeToEdge(
+            statusBarStyle = systemBarStyle,
+            navigationBarStyle = systemBarStyle
+        )
 
+        super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
@@ -26,5 +34,18 @@ class MainActivity : AppCompatActivity() {
 
             WindowInsetsCompat.CONSUMED
         }
+
+        initMenuButtons()
+    }
+
+    private fun initMenuButtons() {
+        binding.buttonFeed.setOnClickListener { makeToast(binding.buttonFeed.text) }
+        binding.buttonMyMovies.setOnClickListener { makeToast(binding.buttonMyMovies.text) }
+        binding.buttonRecommendations.setOnClickListener { makeToast(binding.buttonRecommendations.text) }
+        binding.buttonSettings.setOnClickListener { makeToast(binding.buttonSettings.text) }
+    }
+
+    private fun makeToast(message: CharSequence) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
