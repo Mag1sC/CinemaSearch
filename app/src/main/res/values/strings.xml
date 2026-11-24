@@ -10,8 +10,8 @@
 
     <string name="info_posters_source">Постеры взяты с ресурса https://www.movieposters.com/</string>
 
-    <string name="button_feed">Лента</string>
-    <string name="button_my_movies">Мои фильмы</string>
-    <string name="button_recommendations">Рекомендации</string>
-    <string name="button_settings">Настройки</string>
+    <string name="button_feed">ЛЕНТА</string>
+    <string name="button_my_movies">МОИ ФИЛЬМЫ</string>
+    <string name="button_recommendations">РЕКОМЕНДАЦИИ</string>
+    <string name="button_settings">НАСТРОЙКИ</string>
 </resources>
