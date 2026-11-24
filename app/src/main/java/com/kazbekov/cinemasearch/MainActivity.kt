@@ -3,12 +3,14 @@ package com.kazbekov.cinemasearch
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.navigation.NavigationBarView
 import com.kazbekov.cinemasearch.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -42,9 +44,50 @@ class MainActivity : AppCompatActivity() {
 
             WindowInsetsCompat.CONSUMED
         }
+
+        setOnMenuItemClickListeners()
     }
+
+    private fun setOnMenuItemClickListeners() {
+        binding.topBar.setOnMenuItemClickListener {
+            provideMenuItemClick(it)
+        }
+        (binding.bottomBar as NavigationBarView).setOnItemSelectedListener {
+            provideMenuItemClick(it)
+        }
+    }
+
+    private fun provideMenuItemClick(item: MenuItem) =
+        when (item.itemId) {
+            R.id.item_menu_feed -> {
+                makeToast(R.string.button_feed)
+                true
+            }
+
+            R.id.item_menu_settings -> {
+                makeToast(R.string.button_settings)
+                true
+            }
+
+            R.id.item_menu_my_movies -> {
+                makeToast(R.string.button_my_movies)
+                true
+            }
+
+            R.id.item_menu_recommendations -> {
+                makeToast(R.string.button_recommendations)
+                true
+            }
+
+            else -> false
+        }
+
 
     private fun makeToast(message: CharSequence) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun makeToast(stringRes: Int) {
+        makeToast(resources.getString(stringRes))
     }
 }
