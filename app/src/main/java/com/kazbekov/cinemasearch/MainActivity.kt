@@ -1,5 +1,6 @@
 package com.kazbekov.cinemasearch
 
+import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Пока приложение не имеет найстроки темы, для светлой и темной устанавливается один и тот же цвет
+        // Пока приложение не имеет настройки темы, для светлой и темной устанавливается один и тот же цвет
         val systemBarStyle = SystemBarStyle.dark(Color.TRANSPARENT)
         enableEdgeToEdge(
             statusBarStyle = systemBarStyle,
@@ -26,23 +27,21 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val systemBars =
+                insets.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout())
 
-            v.setPadding(systemBars.left, 0, systemBars.right, 0)
             binding.topBar.setPadding(0, systemBars.top, 0, 0)
-            binding.bottomBar.setPadding(0, 0, 0, systemBars.bottom)
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                v.setPadding(systemBars.left, 0, systemBars.right, 0)
+                binding.bottomBar.setPadding(0, 0, 0, systemBars.bottom)
+            } else {
+                // В landscape-ориентации bottomBar располагается слева
+                binding.bottomBar.setPadding(systemBars.left, 0, 0, systemBars.bottom)
+                v.setPadding(0, 0, 0, 0)
+            }
 
             WindowInsetsCompat.CONSUMED
         }
-
-        initMenuButtons()
-    }
-
-    private fun initMenuButtons() {
-        binding.buttonFeed.setOnClickListener { makeToast(binding.buttonFeed.text) }
-        binding.buttonMyMovies.setOnClickListener { makeToast(binding.buttonMyMovies.text) }
-        binding.buttonRecommendations.setOnClickListener { makeToast(binding.buttonRecommendations.text) }
-        binding.buttonSettings.setOnClickListener { makeToast(binding.buttonSettings.text) }
     }
 
     private fun makeToast(message: CharSequence) {
