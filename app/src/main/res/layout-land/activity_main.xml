@@ -109,6 +109,7 @@
         android:layout_marginBottom="24dp"
         android:autoLink="web"
         android:gravity="center"
+        android:textColor="@color/color_regular_text"
         android:linksClickable="true"
         android:text="@string/info_posters_source"
         app:layout_constraintBottom_toBottomOf="parent"

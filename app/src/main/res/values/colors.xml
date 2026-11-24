@@ -3,11 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
 
-    <color name="primary">#0EA5D5</color>
-    <color name="secondary">#5ABF02</color>
-    <color name="top_bar">#1E7EC5</color>
-    <color name="bottom_bar">#18486D</color>
-
+    <color name="color_regular_text">#1D1D1D</color>
     <color name="color_app_background">#E7E1E1</color>
     <color name="color_navigation_bars">#801147</color>
     <color name="color_accent">#E0DCDC</color>

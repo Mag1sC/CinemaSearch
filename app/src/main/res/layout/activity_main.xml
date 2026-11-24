@@ -94,6 +94,7 @@
         android:autoLink="web"
         android:gravity="center"
         android:linksClickable="true"
+        android:textColor="@color/color_regular_text"
         android:text="@string/info_posters_source"
         app:layout_constraintEnd_toEndOf="@id/posters_bar"
         app:layout_constraintStart_toStartOf="@id/posters_bar"
