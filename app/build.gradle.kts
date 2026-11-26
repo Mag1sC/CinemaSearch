@@ -47,4 +47,6 @@ dependencies {
 
     // CardView
     implementation(libs.androidx.cardview)
+    // ViewPager2
+    implementation(libs.androidx.viewpager2)
 }

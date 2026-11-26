@@ -1,9 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.CinemaSearch" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Используется BottomNavigationView для установки цвета выбранного элемента меню -->
+        <item name="colorSecondaryContainer">@color/color_on_accent_background</item>
+
+        <!-- Установка шрифта по умолчанию для приложения -->
+        <item name="fontFamily">@font/rubik</item>
+        <item name="android:fontFamily">@font/rubik</item>
     </style>
 
+    <!-- Тема для установки в манифесте -->
     <style name="Theme.CinemaSearch" parent="Base.Theme.CinemaSearch" />
 </resources>

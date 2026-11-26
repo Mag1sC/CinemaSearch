@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_app_background"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -11,35 +12,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.42" />
+        app:layout_constraintGuide_percent="0.6" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_bottom_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.92" />
-
-    <FrameLayout
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/top_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/primary"
+        android:background="@color/color_navigation_bars"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu_top_bar"
+        app:title="@string/app_name"
+        app:titleTextAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+        app:titleTextColor="@color/color_accent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="4dp"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-    </FrameLayout>
+    <com.google.android.material.navigationrail.NavigationRailView
+        android:id="@+id/bottom_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/color_navigation_bars"
+        app:itemIconTint="@color/color_accent"
+        app:itemTextColor="@color/color_accent"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
+        app:menu="@menu/menu_bottom_bar"
+        app:menuGravity="center" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/posters_bar"
@@ -51,157 +51,70 @@
         app:cardElevation="8dp"
         app:layout_constraintBottom_toTopOf="@id/text_view_poster_source"
         app:layout_constraintEnd_toStartOf="@id/guideline_posters_bar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_bar">
+        app:layout_constraintStart_toEndOf="@id/bottom_bar"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
+        app:layout_constraintVertical_chainStyle="packed">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4">
 
-            <LinearLayout
-                android:id="@+id/container_posters_inner1"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                app:layout_constraintBottom_toTopOf="@id/container_posters_inner2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/image_view_behemoth_poster"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/behemoth_poster_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/poster_behemoth" />
 
-                <ImageView
-                    android:id="@+id/image_view_behemoth_poster"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/behemoth_poster_description"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/poster_behemoth" />
+            <ImageView
+                android:id="@+id/image_view_dune_poster"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/dune3_poster_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/poster_dune3" />
 
-                <ImageView
-                    android:id="@+id/image_view_dune_poster"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/dune3_poster_description"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/poster_dune3" />
+            <ImageView
+                android:id="@+id/image_view_jumanji_poster"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/jumanji_poster_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/poster_jumanji" />
 
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/image_view_river_poster"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/river_poster_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/poster_river" />
 
-            <LinearLayout
-                android:id="@+id/container_posters_inner2"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/container_posters_inner1">
-
-                <ImageView
-                    android:id="@+id/image_view_jumanji_poster"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/jumanji_poster_description"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/poster_jumanji" />
-
-                <ImageView
-                    android:id="@+id/image_view_river_poster"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/river_poster_description"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/poster_river" />
-
-            </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/text_view_poster_source"
+        style="@style/TextAppearance.MdcTypographyStyles.Caption"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:autoLink="web"
         android:gravity="center"
+        android:textColor="@color/color_regular_text"
         android:linksClickable="true"
         android:text="@string/info_posters_source"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@id/guideline_bottom_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/posters_bar"
         app:layout_constraintStart_toStartOf="@id/posters_bar"
         app:layout_constraintTop_toBottomOf="@id/posters_bar" />
-
-    <FrameLayout
-        android:id="@+id/bottom_bar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/bottom_bar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline_bottom_bar" />
-
-    <LinearLayout
-        android:id="@+id/container_buttons"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginVertical="16dp"
-        android:background="@drawable/buttons_container_background"
-        android:orientation="vertical"
-        android:padding="4dp"
-        app:layout_constraintBottom_toTopOf="@id/guideline_bottom_bar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_default="wrap"
-        app:layout_constraintStart_toEndOf="@id/guideline_posters_bar"
-        app:layout_constraintTop_toBottomOf="@id/top_bar">
-
-        <Button
-            android:id="@+id/button_feed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:text="@string/button_feed"
-            android:textSize="16sp"
-            app:backgroundTint="@null" />
-
-        <Button
-            android:id="@+id/button_my_movies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:text="@string/button_my_movies"
-            android:textSize="16sp"
-            app:backgroundTint="@null" />
-
-        <Button
-            android:id="@+id/button_recommendations"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:text="@string/button_recommendations"
-            android:textSize="16sp"
-            app:backgroundTint="@null" />
-
-        <Button
-            android:id="@+id/button_settings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:text="@string/button_settings"
-            android:textSize="16sp"
-            app:backgroundTint="@null" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
